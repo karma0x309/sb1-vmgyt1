@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 221.2 83.2% 53.3%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 221.2 83.2% 53.3%;
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 217.2 91.2% 59.8%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 224.3 76.3% 48%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+@layer components {
+  /* iOS-specific styles */
+  .ios-btn {
+    @apply rounded-full px-6 py-3 font-semibold text-primary-foreground bg-primary hover:bg-primary/90 transition-colors;
+  }
+
+  .ios-card {
+    @apply rounded-2xl bg-background text-foreground shadow-lg overflow-hidden;
+  }
+
+  .ios-input {
+    @apply rounded-lg border-input bg-background focus:ring-2 focus:ring-ring focus:border-transparent;
+  }
+
+  .ios-switch {
+    @apply relative inline-flex h-6 w-11 items-center rounded-full bg-muted;
+  }
+
+  .ios-switch-thumb {
+    @apply inline-block h-5 w-5 rounded-full bg-white shadow transform transition-transform duration-200 ease-in-out;
+  }
+
+  .ios-switch-active .ios-switch-thumb {
+    @apply translate-x-5;
+  }
+
+  .ios-tab {
+    @apply text-sm font-medium text-muted-foreground hover:text-foreground;
+  }
+
+  .ios-tab-active {
+    @apply text-primary border-b-2 border-primary;
+  }
+
+  /* Updated styles for icon buttons */
+  .ios-btn.btn-icon {
+    @apply p-2 flex items-center justify-center w-10 h-10;
+    background-color: transparent;
+    color: hsl(var(--foreground));
+    border: 1px solid hsl(var(--border));
+  }
+
+  .ios-btn.btn-icon:hover {
+    background-color: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+  }
+
+  .ios-btn.btn-icon svg {
+    @apply w-5 h-5;
+  }
+
+  /* Specific styles for the cart icon */
+  .cart-icon {
+    @apply relative;
+  }
+
+  .cart-icon .item-count {
+    @apply absolute -top-1 -right-1 bg-destructive text-destructive-foreground rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold;
+  }
+
+  /* Typography styles */
+  .text-large-title {
+    @apply text-4xl font-normal leading-tight;
+  }
+
+  .text-title-1 {
+    @apply text-3xl font-normal leading-tight;
+  }
+
+  .text-title-2 {
+    @apply text-2xl font-normal leading-tight;
+  }
+
+  .text-title-3 {
+    @apply text-xl font-normal leading-normal;
+  }
+
+  .text-headline {
+    @apply text-base font-semibold leading-normal;
+  }
+
+  .text-body {
+    @apply text-base font-normal leading-normal;
+  }
+
+  .text-callout {
+    @apply text-sm font-normal leading-normal;
+  }
+
+  .text-subhead {
+    @apply text-sm font-normal leading-normal;
+  }
+
+  .text-footnote {
+    @apply text-xs font-normal leading-normal;
+  }
+
+  .text-caption-1 {
+    @apply text-xs font-normal leading-tight;
+  }
+
+  .text-caption-2 {
+    @apply text-xs font-normal leading-tight;
+  }
+
+  /* Layout improvements */
+  .full-bleed {
+    @apply w-screen relative left-1/2 right-1/2 -mx-[50vw];
+  }
+
+  .safe-area-inset {
+    @apply px-4 sm:px-6 md:px-8;
+  }
+}
